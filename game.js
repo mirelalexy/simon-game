@@ -34,7 +34,6 @@ function nextSequence(){
     gamePattern.push(randomChosenColor);
     buttonSound(randomChosenColor);
     buttonAnimation(randomChosenColor);
-    console.log(gamePattern);
 }
 
     // playing button sound
@@ -82,16 +81,13 @@ function buttonPressAnimation(currentColor){
     // checking if last user choice is the same as the game pattern
 function checkAnswer(currentLevel){
     if (userClickedPattern[currentLevel] === gamePattern[currentLevel]){
-        console.log("success");
 
         if (userClickedPattern.length === gamePattern.length){
-            console.log("finished sequence");
             // new level
             setTimeout(nextSequence, 1000);
         }
     }
     else{
-        console.log("wrong");
         // letting user know their choice was wrong
         var wrongSound = new Audio("sounds/wrong.mp3");
         wrongSound.play();
@@ -118,7 +114,6 @@ for (var i = 0; i < document.querySelectorAll(".btn").length; i++){
         userClickedPattern.push(userChosenColor);
         buttonSound(userChosenColor);
         buttonPressAnimation(userChosenColor);
-        console.log(userClickedPattern);
         checkAnswer(userClickedPattern.length - 1);
     });
 }
